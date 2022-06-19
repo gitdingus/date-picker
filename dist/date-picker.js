@@ -786,7 +786,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "up", "arrow" ],
                         properties: {
-                            src: "chevronUp",
+                            src: chevron_up_namespaceObject,
                         },
                     }),
                     createHtmlElement({
@@ -800,7 +800,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "down", "arrow" ],
                         properties: {
-                            src: "chevronDown",
+                            src: chevron_down_namespaceObject,
                         },
                     }),
                 ],
@@ -813,7 +813,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "up", "arrow" ],
                         properties: {
-                            src: "chevronUp",
+                            src: chevron_up_namespaceObject,
                         },
                     }),
                     createHtmlElement({
@@ -827,7 +827,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "down", "arrow" ],
                         properties: {
-                            src: "chevronDown",
+                            src: chevron_down_namespaceObject,
                         },
                     }),
                 ],
@@ -840,7 +840,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "up", "arrow" ],
                         properties: {
-                            src: "chevronUp",
+                            src: chevron_up_namespaceObject,
                         },
                     }),
                     createHtmlElement({
@@ -854,7 +854,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "down", "arrow" ],
                         properties: {
-                            src: "chevronDown",
+                            src: chevron_down_namespaceObject,
                         },
                     }),
                 ],
