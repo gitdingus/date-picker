@@ -1,4 +1,4 @@
-import { createHtmlElement } from './dom-utils';
+import { createHtmlElement } from 'dom-utils';
 import './date-picker.css';
 import chevronUp from './chevron-up.svg';
 import chevronDown from './chevron-down.svg';
