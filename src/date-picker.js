@@ -143,7 +143,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "up", "arrow" ],
                         properties: {
-                            src: "chevronUp",
+                            src: chevronUp,
                         },
                     }),
                     createHtmlElement({
@@ -157,7 +157,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "down", "arrow" ],
                         properties: {
-                            src: "chevronDown",
+                            src: chevronDown,
                         },
                     }),
                 ],
@@ -170,7 +170,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "up", "arrow" ],
                         properties: {
-                            src: "chevronUp",
+                            src: chevronUp,
                         },
                     }),
                     createHtmlElement({
@@ -184,7 +184,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "down", "arrow" ],
                         properties: {
-                            src: "chevronDown",
+                            src: chevronDown,
                         },
                     }),
                 ],
@@ -197,7 +197,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "up", "arrow" ],
                         properties: {
-                            src: "chevronUp",
+                            src: chevronUp,
                         },
                     }),
                     createHtmlElement({
@@ -211,7 +211,7 @@ const createDatePickerElement = function (){
                         tag: "img",
                         classes: [ "down", "arrow" ],
                         properties: {
-                            src: "chevronDown",
+                            src: chevronDown,
                         },
                     }),
                 ],
