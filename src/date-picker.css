@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+.date-dock{
+    width: 200px;
+}
+.date-picker{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    justify-items: center;
+    align-items: center;
+
+    width: 225px;
+
+    padding: 5px;
+
+    border: 3px solid lightgray;
+    border-radius: 10px;
+
+    font-family: "Roboto Mono";
+    color: rgb(97, 119, 119);
+
+}
+
+.date-picker img{
+    opacity: .3;
+}
+
+.date-picker .picker {
+    display: grid;
+    grid-template-columns: 1fr;
+    
+    justify-items: center;
+    align-items: center;
+}
+
+.date-picker .picker div{
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.picker.focused div{
+    background-color: lightgray;
+}
+
+.date-picker .arrow{
+    display: none; 
+}
+
+.date-picker .arrow.active{
+    display: block;
+}
