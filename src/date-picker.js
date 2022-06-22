@@ -74,7 +74,7 @@ const createDatePickerObject = function (){
 
     function incrementYear(step){
         if (year === "Year"){
-            year = new Date().getYear();
+            year = new Date().getFullYear();
         }
 
         year = year + step;
