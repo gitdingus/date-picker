@@ -771,7 +771,7 @@ const createDatePickerObject = function (){
             if ( month+1 >= 1 && month <= 12){
                 iso8601 += "-" + (month+1).toString().padStart(2, '0');
                 if (day >= 1 && day <= 31){
-                    iso6801 += "-" + day.toString().padStart(2, '0');
+                    iso8601 += "-" + day.toString().padStart(2, '0');
                 }
             }
         }
