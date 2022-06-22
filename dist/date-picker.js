@@ -744,7 +744,7 @@ const createDatePickerObject = function (){
             return months[month];
         }
         else {
-            return month;
+            return month + 1;
         }
     }
 
@@ -764,7 +764,22 @@ const createDatePickerObject = function (){
         return `${months[month]} ${day} ${year}`;
     }
 
-    return { incrementMonth, incrementDay, incrementYear, getDay, getMonth, getYear, getFullDate };
+    function getISO8601Date(){
+        let iso8601 = ""
+        if (year >=0 && year <= 9999){
+            iso8601 += year.toString().padStart(4, '0');
+            if ( month+1 >= 1 && month <= 12){
+                iso8601 += "-" + (month+1).toString().padStart(2, '0');
+                if (day >= 1 && day <= 31){
+                    iso6801 += "-" + day.toString().padStart(2, '0');
+                }
+            }
+        }
+
+        return iso8601; 
+    }
+
+    return { incrementMonth, incrementDay, incrementYear, getDay, getMonth, getYear, getISO8601Date, getFullDate };
 
 };
 
@@ -961,6 +976,7 @@ const createDatePickerElement = function (){
         getYear: datePicker.getYear,
         getMonth: datePicker.getMonth,
         getDay: datePicker.getDay,
+        getISO8601Date: datePicker.getISO8601Date,
     }
 }
 
