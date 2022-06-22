@@ -315,6 +315,9 @@ const createDatePickerElement = function (){
     return {
         datePickerElement,
         getFullDate: datePicker.getFullDate,
+        getYear: datePicker.getYear,
+        getMonth: datePicker.getMonth,
+        getDay: datePicker.getDay,
     }
 }
 
