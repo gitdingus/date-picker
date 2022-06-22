@@ -775,6 +775,10 @@ const createDatePickerObject = function (){
     }
     
     function getYear(){
+        if (!isValidYear(year)){
+            return "Year";
+        }
+        
         return year;
     }
 
