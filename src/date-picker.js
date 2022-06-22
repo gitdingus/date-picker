@@ -5,9 +5,9 @@ import chevronDown from './chevron-down.svg';
 
 const createDatePickerObject = function (){
     //let newDate = {};
-    let month = -1;
-    let day = 0;
-    let year = new Date().getFullYear();
+    let month = "Month";
+    let day = "Day";
+    let year = "Year";
     let rolling = true;
     let fullMonth = true;
 
@@ -31,6 +31,9 @@ const createDatePickerObject = function (){
     
 
     function incrementMonth(step){
+        if (month === "Month"){
+            month = -1;
+        }
         if (isValidMonth(month + step)){
             month += step;
         }
@@ -49,6 +52,9 @@ const createDatePickerObject = function (){
     }
 
     function incrementDay(step){
+        if (day === "Day"){
+            day = 0;
+        }
         if (isValidDay(day + step)){
             day += step;
         }
@@ -67,6 +73,10 @@ const createDatePickerObject = function (){
     }
 
     function incrementYear(step){
+        if (year === "Year"){
+            year = new Date().getYear();
+        }
+
         year = year + step;
     }
 
@@ -86,8 +96,16 @@ const createDatePickerObject = function (){
         return false;
     }
 
-    function isValidYear(){
-        return true;
+    function isValidYear(y){
+        if (y >= 0 && y <= 9999){
+            return true;
+        }
+
+        return false;
+    }
+
+    function containsValidDate(){
+        return ( isValidYear(year) && isValidMonth(month) && isValidDay(day) );
     }
 
 
@@ -118,25 +136,29 @@ const createDatePickerObject = function (){
     }
 
     function getFullDate(){
-        return `${months[month]} ${day} ${year}`;
-    }
-
-    function getISO8601Date(){
-        let iso8601 = ""
-        if (year >=0 && year <= 9999){
-            iso8601 += year.toString().padStart(4, '0');
-            if ( month+1 >= 1 && month <= 12){
-                iso8601 += "-" + (month+1).toString().padStart(2, '0');
-                if (day >= 1 && day <= 31){
-                    iso8601 += "-" + day.toString().padStart(2, '0');
-                }
-            }
+        if (containsValidDate()){
+            return `${months[month]} ${day} ${year}`;
         }
 
-        return iso8601; 
+        return undefined;
     }
 
-    return { incrementMonth, incrementDay, incrementYear, getDay, getMonth, getYear, getISO8601Date, getFullDate };
+    function getISO8601DateString(){
+
+        if (containsValidDate()){
+            let iso8601 = "";
+            iso8601 += year.toString().padStart(4, '0');
+            iso8601 += "-" + (month+1).toString().padStart(2, '0');
+            iso8601 += "-" + day.toString().padStart(2, '0');
+
+           return iso8601; 
+        }
+
+        return undefined;
+
+    }
+
+    return { incrementMonth, incrementDay, incrementYear, getDay, getMonth, getYear, getISO8601DateString, getFullDate };
 
 };
 
@@ -333,7 +355,7 @@ const createDatePickerElement = function (){
         getYear: datePicker.getYear,
         getMonth: datePicker.getMonth,
         getDay: datePicker.getDay,
-        getISO8601Date: datePicker.getISO8601Date,
+        getISO8601DateString: datePicker.getISO8601DateString,
     }
 }
 
