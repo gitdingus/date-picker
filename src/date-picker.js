@@ -76,8 +76,10 @@ const createDatePickerObject = function (){
         if (year === "Year"){
             year = new Date().getFullYear();
         }
+        else {
+            year += step;
+        }
 
-        year = year + step;
     }
 
     function isValidMonth(m){
@@ -135,7 +137,7 @@ const createDatePickerObject = function (){
         if (!isValidYear(year)){
             return "Year";
         }
-        
+
         return year;
     }
 
