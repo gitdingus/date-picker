@@ -164,11 +164,43 @@ const createDatePickerObject = function (){
 
     }
 
-    return { incrementMonth, incrementDay, incrementYear, getDay, getMonth, getYear, getISO8601DateString, getFullDate };
+    // 1 - 12
+    function setMonth(num){
+        if (isValidMonth(num-1)){
+            month = num - 1;
+        }
+
+    }
+
+    function setDay(num){
+        if (isValidDay(num)){
+            day = num;
+        }
+    }
+
+    function setYear(num){
+        if (isValidYear(num)){
+            year = num;
+        }
+    }
+
+    return { 
+        incrementMonth, 
+        incrementDay, 
+        incrementYear,
+        getDay,
+        getMonth, 
+        getYear, 
+        getISO8601DateString, 
+        getFullDate,
+        setYear,
+        setMonth,
+        setDay,
+    };
 
 };
 
-const createDatePickerElement = function (){
+const createDatePickerElement = function (month, day, year){
     const datePicker = createDatePickerObject();
 
     let datePickerElement = createHtmlElement({
@@ -272,6 +304,18 @@ const createDatePickerElement = function (){
 
     datePickerElement.addEventListener("focus", makeActive);
     datePickerElement.addEventListener("blur", blur);
+
+    if (month !== undefined && day !== undefined && year !== undefined){
+        datePicker.setMonth(month);
+        datePicker.setDay(day);
+        datePicker.setYear(year);
+
+        monthPicker.querySelector(".value").textContent = datePicker.getMonth().toString().padStart(2, '0');
+        dayPicker.querySelector(".value").textContent = datePicker.getDay().toString().padStart(2, '0');
+        yearPicker.querySelector(".value").textContent = datePicker.getYear().toString().padStart(4, '0');
+    }
+
+
 
     function clickedPicker(e){
         clearFocus();
