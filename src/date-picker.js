@@ -200,7 +200,7 @@ const createDatePickerObject = function (){
 
 };
 
-const createDatePickerElement = function (month, day, year){
+const createDatePickerElement = function (){
     const datePicker = createDatePickerObject();
 
     let datePickerElement = createHtmlElement({
@@ -305,16 +305,16 @@ const createDatePickerElement = function (month, day, year){
     datePickerElement.addEventListener("focus", makeActive);
     datePickerElement.addEventListener("blur", blur);
 
-    if (month !== undefined && day !== undefined && year !== undefined){
-        datePicker.setMonth(month);
-        datePicker.setDay(day);
-        datePicker.setYear(year);
+    function setDate(jsDate){
+        datePicker.setMonth(jsDate.getMonth()+1);
+        datePicker.setDay(jsDate.setDate());
+        datePicker.setYear(jsDate.getFullYear());
 
         monthPicker.querySelector(".value").textContent = datePicker.getMonth().toString().padStart(2, '0');
         dayPicker.querySelector(".value").textContent = datePicker.getDay().toString().padStart(2, '0');
         yearPicker.querySelector(".value").textContent = datePicker.getYear().toString().padStart(4, '0');
-    }
 
+    }
 
 
     function clickedPicker(e){
@@ -406,6 +406,7 @@ const createDatePickerElement = function (month, day, year){
         getMonth: datePicker.getMonth,
         getDay: datePicker.getDay,
         getISO8601DateString: datePicker.getISO8601DateString,
+        setDate,
     }
 }
 
