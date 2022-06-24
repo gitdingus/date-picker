@@ -307,7 +307,7 @@ const createDatePickerElement = function (){
 
     function setDate(jsDate){
         datePicker.setMonth(jsDate.getMonth()+1);
-        datePicker.setDay(jsDate.setDate());
+        datePicker.setDay(jsDate.getDate());
         datePicker.setYear(jsDate.getFullYear());
 
         monthPicker.querySelector(".value").textContent = datePicker.getMonth().toString().padStart(2, '0');
